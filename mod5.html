@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Farhana Zahir" />
+        <title>Data 608 Module 5</title>
+        <h1>Data 608 Module 05</h1>
+        <h2>Part 1 - 'Reverse A Word' and 'First 20 Multiples'</h2>
+        <script type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   
+    <style>
+        h1{
+            color: #790a0a;
+            font-weight: 90;
+            font-size: 1.4rem;
+        }
+        table {
+          font-family: arial, sans-serif;
+          border: 1px solid black;
+          width: 50%;
+        }
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        tr:nth-child(even) {
+          background-color: #6565a3;
+        }
+    </style>
+    </head>
+    <body style="background-color:rgb(219, 215, 215);">
+    
+    <! Script to reverse the word >
+    <h3>1. Reverse A Word</h3>
+    <h4>Please Enter A Word</h4>
+    <script type="text/javascript">
+    function reverse(str){
+        var split = str.split("");
+        var reverse = split.reverse();
+        var join = reverse.join("");
+        return join;
+    };
+    function reverseAword(){
+            var x = document.getElementById("MyWord");
+            x.innerHTML = reverse(document.getElementById('str').value);
+        }
+    </script>
+    
+    <!Form to receive input and return reversed word>
+    <form name="string">
+        <input id="str" type="str" placeholder="Type word here" size="18">
+        <input type="button" value="Click" onClick="reverseAword();">
+    </form>
+    <br>
+    <div id="MyWord"></div>
+    <br>
+    <br>
+        
+    <!First 20 Multiples>
+    <h3>2. First Twenty Multiples</h3>
+    <h4>Please Enter A Number:</h4>
+    <script type="text/javascript">
+    function calculate_multiple(number){
+        list = [];
+        var final = '<table border="1">';
+        for (i = 1; i <= 20; i++) {list.push(number * i)};
+        for (i = 0; i < 20; i++){
+            if (i % 4 == 0) { 
+                final = final +'<tr>'
+            };
+            final= final + '<td>' + list[i] + '</td>';
+            if (i % 4 == 3){
+                final = final + '</tr>'};};
+            final = final + '</table>';
+        return final
+    };
+    function displaytable(){
+        var y = document.getElementById("numberinput");
+        y.innerHTML = calculate_multiple(document.getElementById('number').value);
+    }
+    </script>
+    <form name="table">
+        <input id="number" type="number" placeholder="Type Number Here" size="8">
+        <input type="button" value="Click" onClick="displaytable();">
+    </form>
+    <br>
+    <div id="numberinput"></div>
+    </body>
